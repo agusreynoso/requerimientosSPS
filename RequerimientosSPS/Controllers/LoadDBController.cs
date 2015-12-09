@@ -156,4 +156,9 @@ namespace RequerimientosSPS.Controllers
             return "ok tarea";
         }
     }
+
+    public string prueba()
+    {
+        return "prueba";
+    }
 }
