@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d21b87fa99440599c9d2f9d54afaeaf" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="spsrequerimientosModel.analista" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.area" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.areaTarea" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.clase" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.equipo" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.estadoSps" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.estadoSpsAdicional" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.estadoTarea" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.impuesto" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.informacionAdicional" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.origen" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.prioridad" Width="1.5" PointX="0.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.severidad" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.sps" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.tarea" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="spsrequerimientosModel.usuario" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_analistasps" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_analistatarea" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_areasps" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_areatarea1" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_clasesps" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_equipotarea" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_estadoSpssps" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_estadoSpsAdicionalinformacionAdicional" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_estadoTareatarea" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_spsimpuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_spsinformacionAdicional" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_spsorigen" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_prioridad" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_severidad" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_tareasps" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.FK_usuariotarea" ManuallyRouted="false" />
+        <AssociationConnector Association="spsrequerimientosModel.areaTareatarea" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

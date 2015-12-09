@@ -1,0 +1,143 @@
+﻿@model IEnumerable<RequerimientosSPS.Models.sps>
+
+@{
+    ViewBag.Title = "Buscar";
+}
+
+<h2 style="text-align:center">Buscar</h2>
+
+<div style="margin-bottom: 1%">
+    <div id="buttonsWrapper">
+    </div>
+</div>
+
+<table id="tablaResultadosBuscador" class="table table-striped table-bordered table-condensed order-column tablaDatatable" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Vuser
+            </th>
+
+            <th>
+                Analista
+            </th>
+            <th>
+                Repartición
+            </th>
+            <th>
+                Usuario
+            </th>
+
+            <th>
+                Impuesto
+            </th>
+            <th>
+                Descripción de Error
+            </th>
+            <th>
+                Descripción
+            </th>
+
+            <th>
+                Estado Incidente
+            </th>
+            <th>
+                Nro. Ticket
+            </th>
+            <th>
+                Programador
+            </th>
+
+            <th>
+                Cuit/ Dominio/ Partida/ Planes
+            </th>
+
+            <th class="date
+                _ar">
+                Fecha Inicio
+            </th>
+
+            <th class="date_ar">
+                Fecha Fin
+            </th>
+
+            <th class="initialyDisabled">
+                Comentarios
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sps in Model)
+        {
+            <tr>
+                <td>@(sps.vuser)</td>
+
+                <td>@(sps.analista.nombre)</td>
+
+                @*<td>@((inc.reparticion != null) ? inc.reparticion.descripcion : "")</td>
+
+                <td>@inc.usuario</td>
+
+                <td>@((inc.impuesto != null) ? inc.impuesto.descripcion : "")</td>
+
+                <td>@((inc.error != null) ? inc.error.descripcion : "")</td>
+
+                <td>@inc.descripcion</td>
+
+                <td>@((inc.estado != null) ? inc.estado.descripcion : "")</td>
+
+                <td>@inc.ticket</td>
+
+                <td>@((inc.programadores != null) ? inc.programadores.mail : "")</td>*@
+
+                @***********************************************************************************************************@
+                @*@{
+                    if (inc.cuit != null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => inc.cuit)
+                        </td>
+                    }
+                    else if (inc.dominio != null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => inc.dominio)
+                        </td>
+                    }
+                    else if (inc.partida != null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => inc.partida)
+                        </td>
+                    }
+                    else if (inc.planfacil != null)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => inc.planfacil)
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }*@
+
+
+                @***********************************************************************************************************@
+
+
+                @*<td>@((inc.fechainicio != null) ? inc.fechainicio.Value.ToString("dd-MM-yyyy") : "")</td>
+                <td>@((inc.fechafin != null) ? inc.fechafin.Value.ToString("dd-MM-yyyy") : "")</td>
+
+
+                <td>@inc.comentarios</td>
+                <td>@((inc.fechapaseprog != null) ? inc.fechapaseprog.Value.ToString("dd-MM-yyyy") : "")</td>
+                <td>@((inc.fecharesprog != null) ? inc.fecharesprog.Value.ToString("dd-MM-yyyy") : "")</td>
+                <td>@((inc.fechapruebausu != null) ? inc.fechapruebausu.Value.ToString("dd-MM-yyyy") : "")</td>
+                <td>@((inc.analistas != null) ? inc.analistas.nombre_apellido : "")</td>
+                <td>@((inc.sistema != null) ? inc.sistema.descripcion : "")</td>*@
+            </tr>
+                    }
+
+    </tbody>
+</table>

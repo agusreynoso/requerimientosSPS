@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Buscador";
+    string boxClass = "well col-md-3 form-group searchBox";
+    string inputClass = "well col-sm-3 searchInput";
+}
+<div id="formBuscador">
+    <h2>Realizar busqueda</h2>
+    @using (Html.BeginForm("Buscar", "Buscador", FormMethod.Post))
+    {
+        <div class="row well well-fecha">
+            
+            <div class="col-md-3">Fecha Desde:
+                <span class='pull-left input-group date searchFechaDesde'>
+                    <input type='text' class="form-control" name="fechaDesde" />
+                    
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </span>
+            </div>
+            <div class="col-md-3"> Fecha Hasta:
+                <span class='pull-left input-group date searchFechaHasta'>
+                    <input type='text' class="form-control" name="fechaHasta" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </span>
+            </div>
+
+            <div>
+                <p class="help-fecha text-primary">* Para buscar por una fecha fija, complete los campos con la misma fecha.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="@boxClass">
+                <div class="searchBoxTitle">VUser</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("vusers", (ViewBag.vusers as MultiSelectList), new { @multiple="multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Analistas</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("analistas", (ViewBag.analistas as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Areas</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("areas", (ViewBag.areas as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Prioridades</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("prioridades", (ViewBag.prioridades as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Origenes</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("origenes", (ViewBag.origenes as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Clases</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("clases", (ViewBag.clases as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Impuestos</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("impuestos", (ViewBag.impuestos as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Estados</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("estados", (ViewBag.estados as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Severidades</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("severidades", (ViewBag.severidades as MultiSelectList), new { @multiple="multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Referencias</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("referencias", (ViewBag.referencias as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Tipos</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("tipos", (ViewBag.tipos as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="@boxClass">
+                <div class="searchBoxTitle">Caratulas</div>
+                <div class="searchBoxResults">
+                    @Html.DropDownList("caratulas", (ViewBag.caratulas as MultiSelectList), new { @multiple = "multiple" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span> Buscar
+                </button>
+            </div>
+        </div>
+    }
+</div>

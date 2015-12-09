@@ -1,0 +1,187 @@
+﻿@model IEnumerable<RequerimientosSPS.Models.sps>
+@{
+    ViewBag.Title = "Requerimientos";
+}
+
+<h2>Pendientes = @ViewBag.pendientes</h2>
+<h2>Cumplidas = @ViewBag.cumplidas</h2>
+
+<div style="margin-bottom: 1%" class="pull-right row">
+    <div class="col-sm-12">
+        <div id="buttonsWrapper"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table id="tablaSps" class="tablaSps table table-bordered table-condensed order-column tablaDatatable" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        VUser
+                    </th>
+
+                    <th>
+                        Referencia
+                    </th>
+                    <th>
+                        Caratula
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+
+                    <th class="date_ar">
+                        Fecha Origen
+                    </th>
+                    <th class="date_ar">
+                        Fecha Comunicada
+                    </th>
+                    <th>
+                        Impuesto
+                    </th>
+
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Clase
+                    </th>
+                    <th>
+                        Origen
+                    </th>
+                    <th>
+                        Severidad
+                    </th>
+                    <th>
+                        Prioridad
+                    </th>
+                    <th>
+                        Area
+                    </th>
+                    <th>
+                        Analista
+                    </th>
+                    <th>
+                        Opciones
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>
+                        VUser
+                    </th>
+
+                    <th>
+                        Referencia
+                    </th>
+                    <th>
+                        Caratula
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+
+                    <th class="date_ar">
+                        Fecha Origen
+                    </th>
+                    <th class="date_ar">
+                        Fecha Comunicada
+                    </th>
+                    <th>
+                        Impuesto
+                    </th>
+
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Clase
+                    </th>
+                    <th>
+                        Origen
+                    </th>
+                    <th>
+                        Severidad
+                    </th>
+                    <th>
+                        Prioridad
+                    </th>
+                    <th>
+                        Area
+                    </th>
+                    <th>
+                        Analista
+                    </th>
+                    <th>
+                        Opciones
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.vuser)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.referencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.caratula)
+                        </td>
+                        <td>
+                            @item.fechaOrigen.Day<text>-</text>@item.fechaOrigen.Month<text>-</text>@item.fechaOrigen.Year
+                        </td>
+                        <td>
+                            @item.fechaComunicada.Day<text>-</text>@item.fechaComunicada.Month<text>-</text>@item.fechaComunicada.Year
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.impuesto.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.estadoSps.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.clase.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.origen.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.severidad.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.prioridad.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.area.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.analista.nombre)
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Opciones
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu ul-chico">
+                                    <li>
+                                        @Html.ActionLink(" Detalles", "Details", new { id = item.Id }, new { @class = "glyphicon glyphicon-search" })
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

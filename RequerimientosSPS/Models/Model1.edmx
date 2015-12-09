@@ -1,0 +1,1134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="spsrequerimientosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="analista">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="areaTarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="areaTareatarea">
+          <Key>
+            <PropertyRef Name="areaTarea_Id" />
+            <PropertyRef Name="tareas_Id" />
+          </Key>
+          <Property Name="areaTarea_Id" Type="int" Nullable="false" />
+          <Property Name="tareas_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="equipo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estadoSps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estadoSpsAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estadoTarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="impuesto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="informacionAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fechaCierre" Type="datetime" Nullable="false" />
+          <Property Name="estadoSpsAdicional_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="origen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="prioridad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="severidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vuser" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="referencia" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tipo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="caratula" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fechaOrigen" Type="datetime" Nullable="false" />
+          <Property Name="fechaComunicada" Type="datetime" Nullable="false" />
+          <Property Name="impuesto_Id" Type="int" />
+          <Property Name="estadoSps_Id" Type="int" Nullable="false" />
+          <Property Name="informacionAdicional_Id" Type="int" />
+          <Property Name="clase_Id" Type="int" />
+          <Property Name="area_Id" Type="int" />
+          <Property Name="analista_Id" Type="int" />
+          <Property Name="origen_id" Type="int" Nullable="false" />
+          <Property Name="severidad_id" Type="int" />
+          <Property Name="prioridad_id" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vuser" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="referencia" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="area_Id" Type="int" />
+          <Property Name="analista_Id" Type="int" />
+          <Property Name="usuario_Id" Type="int" />
+          <Property Name="equipo_Id" Type="int" />
+          <Property Name="estadoTarea_Id" Type="int" Nullable="false" />
+          <Property Name="sps_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_analistasps">
+          <End Role="analista" Type="Self.analista" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="analista_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_analistatarea">
+          <End Role="analista" Type="Self.analista" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="analista_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areasps">
+          <End Role="area" Type="Self.area" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="area_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areatarea1">
+          <End Role="area" Type="Self.area" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="area_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areaTareatarea_areaTarea">
+          <End Role="areaTarea" Type="Self.areaTarea" Multiplicity="1" />
+          <End Role="areaTareatarea" Type="Self.areaTareatarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaTarea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="areaTareatarea">
+              <PropertyRef Name="areaTarea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areaTareatarea_tarea">
+          <End Role="tarea" Type="Self.tarea" Multiplicity="1" />
+          <End Role="areaTareatarea" Type="Self.areaTareatarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tarea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="areaTareatarea">
+              <PropertyRef Name="tareas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clasesps">
+          <End Role="clase" Type="Self.clase" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="clase_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_equipotarea">
+          <End Role="equipo" Type="Self.equipo" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="equipo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="equipo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoSpsAdicionalinformacionAdicional">
+          <End Role="estadoSpsAdicional" Type="Self.estadoSpsAdicional" Multiplicity="1" />
+          <End Role="informacionAdicional" Type="Self.informacionAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoSpsAdicional">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="informacionAdicional">
+              <PropertyRef Name="estadoSpsAdicional_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoSpssps">
+          <End Role="estadoSps" Type="Self.estadoSps" Multiplicity="1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoSps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="estadoSps_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoTareatarea">
+          <End Role="estadoTarea" Type="Self.estadoTarea" Multiplicity="1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoTarea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="estadoTarea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prioridad">
+          <End Role="prioridad" Type="Self.prioridad" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prioridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="prioridad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_severidad">
+          <End Role="severidad" Type="Self.severidad" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="severidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="severidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsimpuesto">
+          <End Role="impuesto" Type="Self.impuesto" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="impuesto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="impuesto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsinformacionAdicional">
+          <End Role="informacionAdicional" Type="Self.informacionAdicional" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="informacionAdicional">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="informacionAdicional_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsorigen">
+          <End Role="origen" Type="Self.origen" Multiplicity="1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="origen">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="origen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tareasps">
+          <End Role="sps" Type="Self.sps" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="sps_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuariotarea">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="spsrequerimientosModelStoreContainer">
+          <EntitySet Name="analista" EntityType="Self.analista" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="areaTarea" EntityType="Self.areaTarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="areaTareatarea" EntityType="Self.areaTareatarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clase" EntityType="Self.clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="equipo" EntityType="Self.equipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoSps" EntityType="Self.estadoSps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoSpsAdicional" EntityType="Self.estadoSpsAdicional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoTarea" EntityType="Self.estadoTarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="impuesto" EntityType="Self.impuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="informacionAdicional" EntityType="Self.informacionAdicional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="origen" EntityType="Self.origen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prioridad" EntityType="Self.prioridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="severidad" EntityType="Self.severidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sps" EntityType="Self.sps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tarea" EntityType="Self.tarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_analistasps" Association="Self.FK_analistasps">
+            <End Role="analista" EntitySet="analista" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_analistatarea" Association="Self.FK_analistatarea">
+            <End Role="analista" EntitySet="analista" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areasps" Association="Self.FK_areasps">
+            <End Role="area" EntitySet="area" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areatarea1" Association="Self.FK_areatarea1">
+            <End Role="area" EntitySet="area" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areaTareatarea_areaTarea" Association="Self.FK_areaTareatarea_areaTarea">
+            <End Role="areaTarea" EntitySet="areaTarea" />
+            <End Role="areaTareatarea" EntitySet="areaTareatarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areaTareatarea_tarea" Association="Self.FK_areaTareatarea_tarea">
+            <End Role="tarea" EntitySet="tarea" />
+            <End Role="areaTareatarea" EntitySet="areaTareatarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clasesps" Association="Self.FK_clasesps">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_equipotarea" Association="Self.FK_equipotarea">
+            <End Role="equipo" EntitySet="equipo" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoSpsAdicionalinformacionAdicional" Association="Self.FK_estadoSpsAdicionalinformacionAdicional">
+            <End Role="estadoSpsAdicional" EntitySet="estadoSpsAdicional" />
+            <End Role="informacionAdicional" EntitySet="informacionAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoSpssps" Association="Self.FK_estadoSpssps">
+            <End Role="estadoSps" EntitySet="estadoSps" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoTareatarea" Association="Self.FK_estadoTareatarea">
+            <End Role="estadoTarea" EntitySet="estadoTarea" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prioridad" Association="Self.FK_prioridad">
+            <End Role="prioridad" EntitySet="prioridad" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_severidad" Association="Self.FK_severidad">
+            <End Role="severidad" EntitySet="severidad" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsimpuesto" Association="Self.FK_spsimpuesto">
+            <End Role="impuesto" EntitySet="impuesto" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsinformacionAdicional" Association="Self.FK_spsinformacionAdicional">
+            <End Role="informacionAdicional" EntitySet="informacionAdicional" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsorigen" Association="Self.FK_spsorigen">
+            <End Role="origen" EntitySet="origen" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tareasps" Association="Self.FK_tareasps">
+            <End Role="sps" EntitySet="sps" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuariotarea" Association="Self.FK_usuariotarea">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="spsrequerimientosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="analista">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_analistasps" FromRole="analista" ToRole="sps" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_analistatarea" FromRole="analista" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_areasps" FromRole="area" ToRole="sps" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_areatarea1" FromRole="area" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="areaTarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tarea" Relationship="Self.areaTareatarea" FromRole="areaTarea" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_clasesps" FromRole="clase" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="equipo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_equipotarea" FromRole="equipo" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="estadoSps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_estadoSpssps" FromRole="estadoSps" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="estadoSpsAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="informacionAdicional" Relationship="Self.FK_estadoSpsAdicionalinformacionAdicional" FromRole="estadoSpsAdicional" ToRole="informacionAdicional" />
+        </EntityType>
+        <EntityType Name="estadoTarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_estadoTareatarea" FromRole="estadoTarea" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="impuesto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_spsimpuesto" FromRole="impuesto" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="informacionAdicional">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fechaCierre" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estadoSpsAdicional_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estadoSpsAdicional" Relationship="Self.FK_estadoSpsAdicionalinformacionAdicional" FromRole="informacionAdicional" ToRole="estadoSpsAdicional" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_spsinformacionAdicional" FromRole="informacionAdicional" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="origen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_spsorigen" FromRole="origen" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="prioridad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_prioridad" FromRole="prioridad" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="severidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_severidad" FromRole="severidad" ToRole="sps" />
+        </EntityType>
+        <EntityType Name="sps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vuser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="referencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="caratula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fechaOrigen" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaComunicada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="impuesto_Id" Type="Int32" />
+          <Property Name="estadoSps_Id" Type="Int32" Nullable="false" />
+          <Property Name="informacionAdicional_Id" Type="Int32" />
+          <Property Name="clase_Id" Type="Int32" />
+          <Property Name="area_Id" Type="Int32" />
+          <Property Name="analista_Id" Type="Int32" />
+          <Property Name="origen_id" Type="Int32" Nullable="false" />
+          <Property Name="severidad_id" Type="Int32" />
+          <Property Name="prioridad_id" Type="Int32" />
+          <NavigationProperty Name="analista" Relationship="Self.FK_analistasps" FromRole="sps" ToRole="analista" />
+          <NavigationProperty Name="area" Relationship="Self.FK_areasps" FromRole="sps" ToRole="area" />
+          <NavigationProperty Name="clase" Relationship="Self.FK_clasesps" FromRole="sps" ToRole="clase" />
+          <NavigationProperty Name="estadoSps" Relationship="Self.FK_estadoSpssps" FromRole="sps" ToRole="estadoSps" />
+          <NavigationProperty Name="impuesto" Relationship="Self.FK_spsimpuesto" FromRole="sps" ToRole="impuesto" />
+          <NavigationProperty Name="informacionAdicional" Relationship="Self.FK_spsinformacionAdicional" FromRole="sps" ToRole="informacionAdicional" />
+          <NavigationProperty Name="origen" Relationship="Self.FK_spsorigen" FromRole="sps" ToRole="origen" />
+          <NavigationProperty Name="prioridad" Relationship="Self.FK_prioridad" FromRole="sps" ToRole="prioridad" />
+          <NavigationProperty Name="severidad" Relationship="Self.FK_severidad" FromRole="sps" ToRole="severidad" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_tareasps" FromRole="sps" ToRole="tarea" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tarea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vuser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="referencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="area_Id" Type="Int32" />
+          <Property Name="analista_Id" Type="Int32" />
+          <Property Name="usuario_Id" Type="Int32" />
+          <Property Name="equipo_Id" Type="Int32" />
+          <Property Name="estadoTarea_Id" Type="Int32" Nullable="false" />
+          <Property Name="sps_Id" Type="Int32" />
+          <NavigationProperty Name="analista" Relationship="Self.FK_analistatarea" FromRole="tarea" ToRole="analista" />
+          <NavigationProperty Name="area" Relationship="Self.FK_areatarea1" FromRole="tarea" ToRole="area" />
+          <NavigationProperty Name="equipo" Relationship="Self.FK_equipotarea" FromRole="tarea" ToRole="equipo" />
+          <NavigationProperty Name="estadoTarea" Relationship="Self.FK_estadoTareatarea" FromRole="tarea" ToRole="estadoTarea" />
+          <NavigationProperty Name="sps" Relationship="Self.FK_tareasps" FromRole="tarea" ToRole="sps" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuariotarea" FromRole="tarea" ToRole="usuario" />
+          <NavigationProperty Name="areaTarea" Relationship="Self.areaTareatarea" FromRole="tarea" ToRole="areaTarea" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tarea" Relationship="Self.FK_usuariotarea" FromRole="usuario" ToRole="tarea" />
+        </EntityType>
+        <Association Name="FK_analistasps">
+          <End Role="analista" Type="Self.analista" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="analista_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_analistatarea">
+          <End Role="analista" Type="Self.analista" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="analista_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areasps">
+          <End Role="area" Type="Self.area" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="area_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_areatarea1">
+          <End Role="area" Type="Self.area" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="area_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clasesps">
+          <End Role="clase" Type="Self.clase" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="clase_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_equipotarea">
+          <End Role="equipo" Type="Self.equipo" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="equipo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="equipo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoSpssps">
+          <End Role="estadoSps" Type="Self.estadoSps" Multiplicity="1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoSps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="estadoSps_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoSpsAdicionalinformacionAdicional">
+          <End Role="estadoSpsAdicional" Type="Self.estadoSpsAdicional" Multiplicity="1" />
+          <End Role="informacionAdicional" Type="Self.informacionAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoSpsAdicional">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="informacionAdicional">
+              <PropertyRef Name="estadoSpsAdicional_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoTareatarea">
+          <End Role="estadoTarea" Type="Self.estadoTarea" Multiplicity="1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoTarea">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="estadoTarea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsimpuesto">
+          <End Role="impuesto" Type="Self.impuesto" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="impuesto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="impuesto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsinformacionAdicional">
+          <End Role="informacionAdicional" Type="Self.informacionAdicional" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="informacionAdicional">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="informacionAdicional_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spsorigen">
+          <End Role="origen" Type="Self.origen" Multiplicity="1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="origen">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="origen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prioridad">
+          <End Role="prioridad" Type="Self.prioridad" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prioridad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="prioridad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_severidad">
+          <End Role="severidad" Type="Self.severidad" Multiplicity="0..1" />
+          <End Role="sps" Type="Self.sps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="severidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sps">
+              <PropertyRef Name="severidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tareasps">
+          <End Role="sps" Type="Self.sps" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="sps_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuariotarea">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tarea">
+              <PropertyRef Name="usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="areaTareatarea">
+          <End Role="areaTarea" Type="Self.areaTarea" Multiplicity="*" />
+          <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="spsrequerimientosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="analista" EntityType="Self.analista" />
+          <EntitySet Name="area" EntityType="Self.area" />
+          <EntitySet Name="areaTarea" EntityType="Self.areaTarea" />
+          <EntitySet Name="clase" EntityType="Self.clase" />
+          <EntitySet Name="equipo" EntityType="Self.equipo" />
+          <EntitySet Name="estadoSps" EntityType="Self.estadoSps" />
+          <EntitySet Name="estadoSpsAdicional" EntityType="Self.estadoSpsAdicional" />
+          <EntitySet Name="estadoTarea" EntityType="Self.estadoTarea" />
+          <EntitySet Name="impuesto" EntityType="Self.impuesto" />
+          <EntitySet Name="informacionAdicional" EntityType="Self.informacionAdicional" />
+          <EntitySet Name="origen" EntityType="Self.origen" />
+          <EntitySet Name="prioridad" EntityType="Self.prioridad" />
+          <EntitySet Name="severidad" EntityType="Self.severidad" />
+          <EntitySet Name="sps" EntityType="Self.sps" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tarea" EntityType="Self.tarea" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="FK_analistasps" Association="Self.FK_analistasps">
+            <End Role="analista" EntitySet="analista" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_analistatarea" Association="Self.FK_analistatarea">
+            <End Role="analista" EntitySet="analista" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areasps" Association="Self.FK_areasps">
+            <End Role="area" EntitySet="area" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_areatarea1" Association="Self.FK_areatarea1">
+            <End Role="area" EntitySet="area" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clasesps" Association="Self.FK_clasesps">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_equipotarea" Association="Self.FK_equipotarea">
+            <End Role="equipo" EntitySet="equipo" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoSpssps" Association="Self.FK_estadoSpssps">
+            <End Role="estadoSps" EntitySet="estadoSps" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoSpsAdicionalinformacionAdicional" Association="Self.FK_estadoSpsAdicionalinformacionAdicional">
+            <End Role="estadoSpsAdicional" EntitySet="estadoSpsAdicional" />
+            <End Role="informacionAdicional" EntitySet="informacionAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoTareatarea" Association="Self.FK_estadoTareatarea">
+            <End Role="estadoTarea" EntitySet="estadoTarea" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsimpuesto" Association="Self.FK_spsimpuesto">
+            <End Role="impuesto" EntitySet="impuesto" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsinformacionAdicional" Association="Self.FK_spsinformacionAdicional">
+            <End Role="informacionAdicional" EntitySet="informacionAdicional" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spsorigen" Association="Self.FK_spsorigen">
+            <End Role="origen" EntitySet="origen" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prioridad" Association="Self.FK_prioridad">
+            <End Role="prioridad" EntitySet="prioridad" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_severidad" Association="Self.FK_severidad">
+            <End Role="severidad" EntitySet="severidad" />
+            <End Role="sps" EntitySet="sps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tareasps" Association="Self.FK_tareasps">
+            <End Role="sps" EntitySet="sps" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuariotarea" Association="Self.FK_usuariotarea">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+          <AssociationSet Name="areaTareatarea" Association="Self.areaTareatarea">
+            <End Role="areaTarea" EntitySet="areaTarea" />
+            <End Role="tarea" EntitySet="tarea" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="spsrequerimientosModelStoreContainer" CdmEntityContainer="spsrequerimientosEntities">
+          <EntitySetMapping Name="analista">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.analista">
+              <MappingFragment StoreEntitySet="analista">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="area">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.area">
+              <MappingFragment StoreEntitySet="area">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="areaTarea">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.areaTarea">
+              <MappingFragment StoreEntitySet="areaTarea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clase">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.clase">
+              <MappingFragment StoreEntitySet="clase">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="equipo">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.equipo">
+              <MappingFragment StoreEntitySet="equipo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoSps">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.estadoSps">
+              <MappingFragment StoreEntitySet="estadoSps">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoSpsAdicional">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.estadoSpsAdicional">
+              <MappingFragment StoreEntitySet="estadoSpsAdicional">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoTarea">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.estadoTarea">
+              <MappingFragment StoreEntitySet="estadoTarea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="impuesto">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.impuesto">
+              <MappingFragment StoreEntitySet="impuesto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="informacionAdicional">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.informacionAdicional">
+              <MappingFragment StoreEntitySet="informacionAdicional">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaCierre" ColumnName="fechaCierre" />
+                <ScalarProperty Name="estadoSpsAdicional_Id" ColumnName="estadoSpsAdicional_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="origen">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.origen">
+              <MappingFragment StoreEntitySet="origen">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prioridad">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.prioridad">
+              <MappingFragment StoreEntitySet="prioridad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="severidad">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.severidad">
+              <MappingFragment StoreEntitySet="severidad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sps">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.sps">
+              <MappingFragment StoreEntitySet="sps">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vuser" ColumnName="vuser" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="caratula" ColumnName="caratula" />
+                <ScalarProperty Name="fechaOrigen" ColumnName="fechaOrigen" />
+                <ScalarProperty Name="fechaComunicada" ColumnName="fechaComunicada" />
+                <ScalarProperty Name="impuesto_Id" ColumnName="impuesto_Id" />
+                <ScalarProperty Name="estadoSps_Id" ColumnName="estadoSps_Id" />
+                <ScalarProperty Name="informacionAdicional_Id" ColumnName="informacionAdicional_Id" />
+                <ScalarProperty Name="clase_Id" ColumnName="clase_Id" />
+                <ScalarProperty Name="area_Id" ColumnName="area_Id" />
+                <ScalarProperty Name="analista_Id" ColumnName="analista_Id" />
+                <ScalarProperty Name="origen_id" ColumnName="origen_id" />
+                <ScalarProperty Name="severidad_id" ColumnName="severidad_id" />
+                <ScalarProperty Name="prioridad_id" ColumnName="prioridad_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tarea">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.tarea">
+              <MappingFragment StoreEntitySet="tarea">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vuser" ColumnName="vuser" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="area_Id" ColumnName="area_Id" />
+                <ScalarProperty Name="analista_Id" ColumnName="analista_Id" />
+                <ScalarProperty Name="usuario_Id" ColumnName="usuario_Id" />
+                <ScalarProperty Name="equipo_Id" ColumnName="equipo_Id" />
+                <ScalarProperty Name="estadoTarea_Id" ColumnName="estadoTarea_Id" />
+                <ScalarProperty Name="sps_Id" ColumnName="sps_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="spsrequerimientosModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="areaTareatarea" TypeName="spsrequerimientosModel.areaTareatarea" StoreEntitySet="areaTareatarea">
+            <EndProperty Name="areaTarea">
+              <ScalarProperty Name="Id" ColumnName="areaTarea_Id" />
+            </EndProperty>
+            <EndProperty Name="tarea">
+              <ScalarProperty Name="Id" ColumnName="tareas_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
