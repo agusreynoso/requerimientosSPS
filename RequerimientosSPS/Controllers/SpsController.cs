@@ -22,8 +22,8 @@ namespace RequerimientosSPS.Controllers
         // GET: Sps/Details/5
         public ActionResult Details(int id)
         {
-            var sps = db.sps.Where(n => n.Id == id);
-            return View(sps);
+            var tarea = db.tarea.Where(n => n.sps.Id == id);
+            return View(tarea);
         }
 
         // GET: Sps/Create

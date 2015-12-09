@@ -144,8 +144,8 @@ namespace RequerimientosSPS.Controllers
                     usuario = db.usuario.FirstOrDefault(a => a.nombre == val_usuario),
                     area = db.area.FirstOrDefault(a => a.descripcion == val_area),
                     sps = db.sps.FirstOrDefault(a => a.vuser == val_sps),
-                    referencia = values[IndicesArchivoSps.INDICE_REFERENCIA].Trim(),
-                    vuser = values[IndicesArchivoSps.INDICE_VUSER].Trim(),
+                    referencia = values[IndicesArchivoTarea.INDICE_REFERENCIA].Trim(),
+                    vuser = values[IndicesArchivoTarea.INDICE_VUSER].Trim(),
                 };
                 var areaTarea = db.areaTarea.FirstOrDefault(a => a.descripcion == val_areaTarea);
                 areaTarea.tarea.Add(tarea);

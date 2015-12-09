@@ -1,8 +1,97 @@
-﻿
+﻿@model IEnumerable<RequerimientosSPS.Models.tarea>
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Requerimientos";
 }
 
-<h2>Details</h2>
+<div style="margin-bottom: 1%" class="pull-right row">
+    <div class="col-sm-12">
+        <div id="buttonsWrapper"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <table id="tablaSps" class="tablaSps table table-bordered table-condensed order-column tablaDatatable" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        VUser
+                    </th>
+                    <th>
+                        Referencia
+                    </th>
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Caratula
+                    </th>
+                    <th>
+                        VUser Tarea
+                    </th>
+                    <th>
+                        Referencia Tarea
+                    </th>
 
-<h2>Aca estamos probando si sube el proyecto a Git</h2>
+                    <th>
+                        Area Tarea
+                    </th>
+                    <th>
+                        Analista Tarea
+                    </th>
+                    <th>
+                        Equipo Tarea
+                    </th>
+                    <th>
+                        Estado Tarea
+                    </th>
+                    <th>
+                        Usuario Tarea
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                @* lo mismo que en thead *@
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sps.vuser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sps.referencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sps.tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sps.caratula)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.vuser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.referencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.area.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.analista.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.equipo.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.estadoTarea.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.usuario.nombre)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
